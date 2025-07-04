@@ -238,7 +238,7 @@ function Home() {
                     </Button>
                   </a>
                   <a
-                    href="https://www.instagram.com/proyectosutp/"
+                    href="https://www.instagram.com/emprendimiento_utp?igsh=MTh0ZW11cjRrd2x1Zg=="
                     target="_blank"
                     className="text-pink-500"
                   >

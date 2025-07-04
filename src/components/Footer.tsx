@@ -49,7 +49,7 @@ function Footer() {
             </Button>
           </a>
           <a
-            href="https://www.instagram.com/proyectosutp/"
+            href="https://www.instagram.com/emprendimiento_utp?igsh=MTh0ZW11cjRrd2x1Zg=="
             target="_blank"
             className="text-white"
           >
@@ -73,7 +73,7 @@ function Footer() {
             </Button>
           </a>
           <a
-            href="https://www.tiktok.com/@licenciatura_en_admin?_t=ZS-8wWG0KbTvPu&_r=1"
+            href="https://www.google.com/maps/place/Technological+University+of+Parral/@26.946036,-105.72195,15z/data=!4m6!3m5!1s0x86945470990c8f8b:0x62dd61c0e1d03cd0!8m2!3d26.9460355!4d-105.7219505!16s%2Fg%2F11b5wmkrft?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             className="text-white"
           >
