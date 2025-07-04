@@ -5,14 +5,12 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarGroup,
-  SidebarGroupAction,
-  SidebarGroupLabel,
   SidebarGroupContent,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
 import { useSidebar } from "@/components/ui/sidebar";
 import { Button } from "./ui/button";
-import { Plus, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function AppSidebar() {

@@ -1,4 +1,3 @@
-import React from "react";
 import Imagen from "@/components/ImagenModal";
 import { useState } from "react";
 

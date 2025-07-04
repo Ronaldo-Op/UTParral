@@ -1,7 +1,6 @@
 import { FaTiktok, FaFacebook, FaInstagram } from "react-icons/fa";
 import { MapPinned } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import React from "react";
 
 function Footer() {
   return (
