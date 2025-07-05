@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Labs from "../pages/Labs";
 import NotFound from "../pages/NotFound";
 import Galery from "../pages/Galery";
 import { SidebarProvider } from "@/components/ui/sidebar";
@@ -18,6 +19,7 @@ function AppRouter() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/galeria" element={<Galery />} />
+            <Route path="/laboratorios" element={<Labs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

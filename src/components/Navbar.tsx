@@ -16,7 +16,7 @@ function Navbar() {
     },
     {
       name: "Laboratorios",
-      to: "/",
+      to: "/laboratorios",
     },
     {
       name: "Fotogalería",
@@ -31,7 +31,7 @@ function Navbar() {
       to: "/",
     },
     {
-      name: "Integradores",
+      name: "Integradoras",
       to: "/",
     },
     {
@@ -65,7 +65,7 @@ function Navbar() {
       <div className="flex flex-col p-2 md:pb-0">
         <div className="border-b-black md:border-b p-1 flex justify-between items-center">
           <Link to="/">
-            <img src="assets/logo LGNP.webp" alt="" className="w-10 h-auto" />
+            <img src="assets/lgnp.svg" alt="" className="w-13 h-auto" />
           </Link>
           <Button
             onClick={toggleSidebar}
@@ -95,7 +95,7 @@ function Navbar() {
         {/* Encabezado con logo y botón hamburguesa */}
         <div className="flex justify-between items-center p-2 border-b border-black/10">
           <Link to="/">
-            <img src="assets/logo LGNP.webp" alt="" className="w-10 h-auto" />
+            <img src="assets/lgnp min.svg" alt="" className="w-13 h-auto" />
           </Link>
           <Button
             onClick={toggleSidebar}

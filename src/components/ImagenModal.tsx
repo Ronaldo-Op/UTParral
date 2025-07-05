@@ -28,7 +28,7 @@ export default function ImageModal({ open, image, onClose }: ImageModalProps) {
         <img
           src={image}
           alt="Imagen ampliada"
-          className="w-full max-h-[80vh] object-cover rounded-lg shadow-lg"
+          className="w-full max-h-[80vh] object-contain rounded-lg"
         />
       </div>
     </div>
