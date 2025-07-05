@@ -1,7 +1,6 @@
 import Imagen from "@/components/ImagenModal";
 import Viewer360 from "@/components/Viewer360";
 import { useState } from "react";
-import { RotateCw } from "lucide-react";
 
 function Labs() {
   const [modalOpen, setModalOpen] = useState(false);
