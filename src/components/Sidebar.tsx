@@ -26,7 +26,7 @@ export function AppSidebar() {
     },
     {
       name: "Laboratorios",
-      to: "/",
+      to: "/laboratorios",
     },
     {
       name: "Fotogalería",
