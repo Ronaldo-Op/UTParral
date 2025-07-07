@@ -1,44 +1,43 @@
-import Imagen from "@/components/ImagenModal";
-import { useState } from "react";
+import Images from "@/components/Images";
+import PageTitle from "@/components/PageTitle";
+import Section from "@/components/Section";
 
 function Galery() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const pics = [
-    "assets/pics/1-94.jpeg",
-    "assets/pics/2-1.jpeg",
-    "assets/pics/2-91.jpeg",
-    "assets/pics/2-92.jpeg",
-    "assets/pics/2-93.jpeg",
-    "assets/pics/2-94.jpeg",
-    "assets/pics/IMG_4854.jpeg",
-    "assets/pics/IMG_4964.jpeg",
-  ];
-
-  const openModal = (src: string) => {
-    setSelectedImage(src);
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-    setSelectedImage(null);
-  };
   return (
-    <div className="p-3">
-      <h1 className="text-4xl text-center">Galeria</h1>
-      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 pt-5">
-        {pics.map((pic, i) => (
-          <img
-            key={i}
-            src={`${pic}`}
-            alt="UTP"
-            onClick={() => openModal(pic)}
-            className="hover:cursor-pointer"
-          />
-        ))}
-      </div>
-      <Imagen open={modalOpen} image={selectedImage} onClose={closeModal} />
+    <div className="">
+      <PageTitle
+        img="assets/pics/travels/empLat/1-2.webp"
+        name="galería"
+      ></PageTitle>
+      <Images
+        ext="jpeg"
+        folder="pics/galery/activities/"
+        len={8}
+        title="actividades"
+      ></Images>
+      <Section
+        img="assets/pics/galery/1-1.webp"
+        title="
+Licenciadas en Gestión de Negocios y Proyectos"
+      ></Section>
+      <Images
+        ext="webp"
+        folder="pics/galery/integradora/"
+        len={15}
+        title="Presentación de Integradora (Licenciatura)"
+      ></Images>
+      <Images
+        ext="webp"
+        folder="pics/galery/estadias/"
+        len={16}
+        title="Estadías Profesionales 2023"
+      ></Images>
+      <Images
+        ext="webp"
+        folder="pics/galery/proyectos/"
+        len={20}
+        title="proyectos"
+      ></Images>
     </div>
   );
 }

@@ -5,6 +5,11 @@ import Footer from "../components/Footer";
 import Labs from "../pages/Labs";
 import NotFound from "../pages/NotFound";
 import Galery from "../pages/Galery";
+import Reticula from "../pages/Reticula";
+import Integradora from "../pages/Integradora";
+import Travels from "../pages/Travels";
+import Concursos from "../pages/Concursos";
+import Capabilities from "../pages/Capabilities";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/Sidebar";
 import ScrollToTop from "../components/ScrollToTop";
@@ -15,11 +20,16 @@ function AppRouter() {
       <ScrollToTop />
       <div className="w-full h-full flex flex-col cursor-default select-none max-w-7xl mx-auto min-w-80">
         <Navbar />
-        <div className=" border-foreground p-2 pt-4 flex-1">
+        <div className=" border-foreground flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/galeria" element={<Galery />} />
             <Route path="/laboratorios" element={<Labs />} />
+            <Route path="/reticula" element={<Reticula />} />
+            <Route path="/integradoras" element={<Integradora />} />
+            <Route path="/concursos" element={<Concursos />} />
+            <Route path="/visitas" element={<Travels />} />
+            <Route path="/competencias" element={<Capabilities />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

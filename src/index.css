@@ -4,6 +4,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+a.no-underline-anim::after {
+  content: none !important;
+}
+
 @theme {
   --breakpoint-xs: 30rem;
 }
@@ -126,14 +130,25 @@
   body {
     @apply bg-background text-foreground;
   }
-  a,
   p,
   span,
   ul {
-    @apply font-roboto-condensed text-sm text-muted-foreground leading-none;
+    @apply font-roboto-condensed text-muted-foreground leading-none mb-3;
   }
-  h1,
+  Link,
+  a {
+    @apply font-roboto-condensed text-muted-foreground leading-none relative inline-block after:absolute after:left-1/2 after:top-4 after:h-[3px] after:w-0 after:bg-green-800 after:transition-all after:duration-300 hover:after:w-full hover:after:left-0;
+  }
+  hr {
+    @apply border-green-800 border-2;
+  }
+  h1 {
+    @apply font-montserrat font-bold leading-none capitalize text-4xl my-2;
+  }
   h2 {
-    @apply font-montserrat font-bold leading-none capitalize;
+    @apply font-montserrat font-bold leading-none capitalize text-3xl my-2;
+  }
+  h3 {
+    @apply font-montserrat font-bold leading-none capitalize text-2xl my-2;
   }
 }

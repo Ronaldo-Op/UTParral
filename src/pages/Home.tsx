@@ -8,10 +8,11 @@ function Home() {
     <>
       <div className="flex flex-col gap-3 p-3">
         <div className="flex items-center justify-center shadow-lg w-full aspect-[16/4] font-bold p-7">
-          <h1 className="text-center text-2xl xs:text-4xl">
+          <h1 className="text-center">
             Emprendimiento-Licenciatura en Administración
           </h1>
         </div>
+
         <div
           className="flex bg-cover bg-center aspect-[16/4] w-full items-center justify-center"
           style={{ backgroundImage: `url(${fondo})` }}
@@ -20,115 +21,118 @@ function Home() {
             <img src="assets/logo png.webp" alt="" />
           </div>
         </div>
-        <div className="flex flex-col justify-center w-full text-center gap-6 bg-neutral-900 p-10">
-          <h1 className="text-white text-2xl xs:text-4xl font-bold">
-            VEN Y CONOCE NUESTRAS INSTALACIONES
-          </h1>
-          <span className="text-white">
-            VEN Y PERTENECE A LOS LOBOS GRISES DE LA UTP
-          </span>
+
+        <div className="flex flex-col justify-center w-full text-center gap-6 bg-card border p-10">
+          <h2>VEN Y CONOCE NUESTRAS INSTALACIONES</h2>
+          <span>VEN Y PERTENECE A LOS LOBOS GRISES DE LA UTP</span>
           <img src="assets/LOBO UTP.webp" alt="" className="h-50 m-auto" />
-          <h1 className="text-white text-2xl xs:text-4xl font-bold">
-            TE ESPERAMOS!!
-          </h1>
+          <h2>TE ESPERAMOS!!</h2>
         </div>
+
         <div className="w-full aspect-[16/9]">
           <img src="assets/lobos psy.webp" alt="" className="w-full h-full" />
         </div>
-        <div className="flex flex-col xs:flex-row py-10 px-6 bg-neutral-900 gap-3">
-          <div className="w-full xs:w-1/2 py-5 xs:py-0">
-            <img src="assets/F78A3980.webp" alt="" className="w-full h-auto" />
-          </div>
-          <div className="xs:w-1/2 flex flex-col gap-3">
-            <h1 className="text-2xl xs:text-3xl text-white mb-4 font-bold">
-              PERFIL DE INGRESO
-            </h1>
-            <p className="text-white mb-6">
-              Para ingresar a la Universidad en la carrera de Técnico Superior
-              Universitario en Administración debe cumplir los siguientes
-              requisitos:
-            </p>
 
-            <ul className="space-y-4 text-white text-justify">
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>
-                  Haber concluido los estudios de Bachillerato o Preparatoria.
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>
-                  Cubrir la cuota de derecho a examen de admisión y aprobar el
-                  examen general de admisión (EXANI).
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>Cubrir la cuota de inscripción.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>
-                  Presentar una inclinación y vocación a las ciencias
-                  económico-administrativas.
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>Interés por el ámbito de administración.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>Habilidad numérica y comprensión de lectura.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>
-                  Capacidad para el análisis e interpretación de datos.
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>Pensamiento crítico.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>
-                  Espíritu creativo, interés por áreas de la empresa
-                  relacionadas con la aplicación del respectivo proceso
-                  administrativo.
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>Interés por el crecimiento económico del país.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>
-                  Contar con alta responsabilidad, iniciativa, respeto y
-                  honestidad.
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>
-                  Tener una amplia disposición al trabajo en equipo, hábitos de
-                  estudio, comunicación oral y escrita, alto sentido del orden y
-                  organización a la búsqueda y consulta de información.
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-lg">›</span>
-                <span>
-                  Poseer un alto compromiso para alcanzar el desarrollo de
-                  habilidades.
-                </span>
-              </li>
-            </ul>
+        <div className="py-10 px-6 bg-card">
+          <h2 className="mb-3">PERFIL DE INGRESO</h2>
+          <hr className="w-full" />
+          <div className="flex flex-col xs:flex-row bg-card gap-3 mt-4">
+            <div className="w-full xs:w-1/2 py-5 xs:py-0">
+              <img
+                src="assets/F78A3980.webp"
+                alt=""
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="xs:w-1/2 flex flex-col gap-3">
+              <p className="mb-6">
+                Para ingresar a la Universidad en la carrera de Técnico Superior
+                Universitario en Administración debe cumplir los siguientes
+                requisitos:
+              </p>
+              <ul className="space-y-4 text-justify">
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>
+                    Haber concluido los estudios de Bachillerato o Preparatoria.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>
+                    Cubrir la cuota de derecho a examen de admisión y aprobar el
+                    examen general de admisión (EXANI).
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>Cubrir la cuota de inscripción.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>
+                    Presentar una inclinación y vocación a las ciencias
+                    económico-administrativas.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>Interés por el ámbito de administración.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>Habilidad numérica y comprensión de lectura.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>
+                    Capacidad para el análisis e interpretación de datos.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>Pensamiento crítico.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>
+                    Espíritu creativo, interés por áreas de la empresa
+                    relacionadas con la aplicación del respectivo proceso
+                    administrativo.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>Interés por el crecimiento económico del país.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>
+                    Contar con alta responsabilidad, iniciativa, respeto y
+                    honestidad.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>
+                    Tener una amplia disposición al trabajo en equipo, hábitos
+                    de estudio, comunicación oral y escrita, alto sentido del
+                    orden y organización a la búsqueda y consulta de
+                    información.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-lg">›</span>
+                  <span>
+                    Poseer un alto compromiso para alcanzar el desarrollo de
+                    habilidades.
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+
         <div
           className="flex bg-cover bg-center aspect-[16/10] w-full items-center justify-center"
           style={{ backgroundImage: `url(${fondo2})` }}
@@ -137,12 +141,12 @@ function Home() {
             TE ESTAMOS ESPERANDO
           </h1>
         </div>
-        <div className="bg-neutral-900 w-full py-10 px-6 flex flex-col gap-3 items-center">
-          <h1 className="text-2xl xs:text-4xl text-white mb-4 text-center font-bold">
-            PERFIL DE EGRESO
-          </h1>
+
+        <div className="bg-card w-full py-10 px-6 flex flex-col gap-3">
+          <h2>PERFIL DE EGRESO</h2>
+          <hr className="w-full" />
           <div className="">
-            <p className="text-white mb-6">
+            <p className="mb-6">
               El Licenciado en Administración, podrá desenvolverse en:
             </p>
             <ul className="space-y-4 text-white text-justify">

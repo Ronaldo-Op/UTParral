@@ -22,7 +22,7 @@ export function AppSidebar() {
     },
     {
       name: "Competencias",
-      to: "/",
+      to: "/competencias",
     },
     {
       name: "Laboratorios",
@@ -34,19 +34,19 @@ export function AppSidebar() {
     },
     {
       name: "Concursos Nacionales",
-      to: "/",
+      to: "/concursos",
     },
     {
       name: "Visitas Industriales",
-      to: "/",
+      to: "/visitas",
     },
     {
       name: "Integradores",
-      to: "/",
+      to: "/integradoras",
     },
     {
       name: "Reticula",
-      to: "/",
+      to: "/reticula",
     },
   ];
   return (
@@ -67,7 +67,11 @@ export function AppSidebar() {
               {items.map((item, i) => (
                 <SidebarMenuItem key={i}>
                   <SidebarMenuButton asChild>
-                    <Link to={item.to} onClick={toggleSidebar}>
+                    <Link
+                      to={item.to}
+                      onClick={toggleSidebar}
+                      className="no-underline-anim"
+                    >
                       <span>{item.name}</span>
                     </Link>
                   </SidebarMenuButton>

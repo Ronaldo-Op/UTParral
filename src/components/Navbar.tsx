@@ -3,6 +3,7 @@ import { useSidebar } from "@/components/ui/sidebar";
 import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ModeToggle } from "@/components/ModeToggle";
 
 function Navbar() {
   const link = [
@@ -12,7 +13,7 @@ function Navbar() {
     },
     {
       name: "Competencias",
-      to: "/",
+      to: "/competencias",
     },
     {
       name: "Laboratorios",
@@ -24,19 +25,19 @@ function Navbar() {
     },
     {
       name: "Concursos Nacionales",
-      to: "/",
+      to: "/concursos",
     },
     {
       name: "Visitas Industriales",
-      to: "/",
+      to: "/visitas",
     },
     {
       name: "Integradoras",
-      to: "/",
+      to: "/integradoras",
     },
     {
       name: "Reticula",
-      to: "/",
+      to: "/reticula",
     },
   ];
 
@@ -63,53 +64,60 @@ function Navbar() {
   return (
     <>
       <div className="flex flex-col p-2 md:pb-0">
-        <div className="border-b-black md:border-b p-1 flex justify-between items-center">
-          <Link to="/">
+        <div className="border-b-muted-foreground md:border-b p-1 flex justify-between items-center">
+          <Link to="/" className="no-underline-anim">
             <img src="assets/lgnp.svg" alt="" className="w-13 h-auto" />
           </Link>
-          <Button
-            onClick={toggleSidebar}
-            variant={"outline"}
-            className="md:hidden"
-          >
-            <Menu></Menu>
-          </Button>
+          <div className="flex gap-3">
+            <ModeToggle></ModeToggle>
+            <Button
+              onClick={toggleSidebar}
+              variant={"outline"}
+              className="md:hidden"
+            >
+              <Menu></Menu>
+            </Button>
+          </div>
         </div>
-        <div className="gap-3 overflow-x-auto overflow-y-hidden scrollbar-thin p-2 whitespace-nowrap hidden md:flex justify-center">
+        <div className="gap-3 overflow-hidden scrollbar-thin p-2 whitespace-nowrap hidden md:flex justify-center">
           {link.map((link, i) => {
             return (
-              <Link key={i} to={link.to} className="hover:underline">
+              <Link key={i} to={link.to}>
                 <span>{link.name}</span>
               </Link>
             );
           })}
         </div>
       </div>
+
       <div
         className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
           scrolled
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
-        } bg-white/80 backdrop-blur-md border shadow-md w-full max-w-7xl`}
+        } bg-background/80 backdrop-blur-md shadow-md w-full max-w-7xl p-1`}
       >
         {/* Encabezado con logo y botón hamburguesa */}
-        <div className="flex justify-between items-center p-2 border-b border-black/10">
-          <Link to="/">
-            <img src="assets/lgnp min.svg" alt="" className="w-13 h-auto" />
+        <div className="flex justify-between items-center p-2 md:border-b border-muted-foreground">
+          <Link to="/" className="no-underline-anim">
+            <img src="assets/lgnp.svg" alt="" className="w-13 h-auto" />
           </Link>
-          <Button
-            onClick={toggleSidebar}
-            variant="outline"
-            className="md:hidden"
-          >
-            <Menu />
-          </Button>
+          <div className="flex gap-3">
+            <ModeToggle></ModeToggle>
+            <Button
+              onClick={toggleSidebar}
+              variant={"outline"}
+              className="md:hidden"
+            >
+              <Menu></Menu>
+            </Button>
+          </div>
         </div>
 
         {/* Navegación scrollable en desktop */}
-        <div className="gap-3 overflow-x-auto overflow-y-hidden scrollbar-thin p-2 whitespace-nowrap hidden md:flex justify-center">
+        <div className="gap-3 p-2 whitespace-nowrap hidden md:flex justify-center">
           {link.map((link, i) => (
-            <Link key={i} to={link.to} className="hover:underline">
+            <Link key={i} to={link.to} className="">
               <span>{link.name}</span>
             </Link>
           ))}
