@@ -1,5 +1,3 @@
-import React from "react";
-
 function Reticula() {
   return (
     <div className="p-3">
