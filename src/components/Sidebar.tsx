@@ -48,6 +48,10 @@ export function AppSidebar() {
       name: "Reticula",
       to: "/reticula",
     },
+    {
+      name: "Noticias",
+      to: "/noticias",
+    },
   ];
   return (
     <Sidebar side="right" variant="sidebar">

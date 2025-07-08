@@ -39,6 +39,10 @@ function Navbar() {
       name: "Reticula",
       to: "/reticula",
     },
+    {
+      name: "Noticias",
+      to: "/noticias",
+    },
   ];
 
   const { toggleSidebar } = useSidebar();

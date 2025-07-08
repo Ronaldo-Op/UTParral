@@ -7,6 +7,7 @@ import NotFound from "../pages/NotFound";
 import Galery from "../pages/Galery";
 import Reticula from "../pages/Reticula";
 import Integradora from "../pages/Integradora";
+import News from "../pages/News";
 import Travels from "../pages/Travels";
 import Concursos from "../pages/Concursos";
 import Capabilities from "../pages/Capabilities";
@@ -26,6 +27,7 @@ function AppRouter() {
             <Route path="/galeria" element={<Galery />} />
             <Route path="/laboratorios" element={<Labs />} />
             <Route path="/reticula" element={<Reticula />} />
+            <Route path="/noticias" element={<News />} />
             <Route path="/integradoras" element={<Integradora />} />
             <Route path="/concursos" element={<Concursos />} />
             <Route path="/visitas" element={<Travels />} />
