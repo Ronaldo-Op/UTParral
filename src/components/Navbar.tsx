@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ModeToggle } from "@/components/ModeToggle";
+import Logout from "@/components/Logout";
 
 function Navbar() {
   const link = [
@@ -81,6 +82,7 @@ function Navbar() {
             >
               <Menu></Menu>
             </Button>
+            <Logout></Logout>
           </div>
         </div>
         <div className="gap-3 overflow-hidden scrollbar-thin p-2 whitespace-nowrap hidden md:flex justify-center">
@@ -115,6 +117,7 @@ function Navbar() {
             >
               <Menu></Menu>
             </Button>
+            <Logout></Logout>
           </div>
         </div>
 

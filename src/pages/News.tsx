@@ -7,40 +7,60 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+type Noticia = {
+  id: string;
+  title: string;
+  synopsis: string;
+  content: string;
+  date: string;
+  author: string;
+  img: string;
+};
+
+const ITEMS_PER_PAGE = 5;
 
 function News() {
-  const news = [
-    {
-      title: "visita al Vivero Forestal",
-      content:
-        "Estudiantes de Agricultura Sustentable y Protegida realizaron una visita al Vivero Forestal del Ing. Javier Navar, ubicado en el municipio de San Francisco del Oro, como parte de su formación en la materia de Sistemas de Producción Agrícola Sustentable.",
-      img: "assets/pics/news/visita f.jpg",
-    },
-    {
-      title: "Gira académica",
-      content:
-        "Estudiantes de 9.º cuatrimestre de la carrera de Agricultura Sustentable y Protegida, acompañados por la docente Laysa Saucedo, realizaron una enriquecedora gira académica por diversas la Comarca Lagunera.",
-      img: "assets/pics/news/gira academica.jpg",
-    },
-    {
-      title: "visita cecytech",
-      content:
-        "Nuestra rectora Betty Chávez asistió a la emotiva ceremonia de graduación del Cecytech Valle de Allende y compartió un mensaje de felicitación a los jóvenes que culminan esta importante etapa en su formación.",
-      img: "assets/pics/news/visita cecyt.jpg",
-    },
-    {
-      title: "tercera sesión del consejo directivo",
-      content:
-        "Este día se llevó a cabo la Tercera Sesión Ordinaria del H. Consejo Directivo de la Universidad Tecnológica de Parral, encabezada por nuestra rectora, Betty Chávez, quien presentó un informe detallado sobre las actividades realizadas en las áreas financiera y académica, así como los avances estratégicos que consolidan el compromiso de nuestra institución con la calidad educativa y el desarrollo integral de nuestra comunidad universitaria.",
-      img: "assets/pics/news/sesion.jpg",
-    },
-    {
-      title: "torneo gamer",
-      content:
-        "La carrera de Tecnologías de la Información llevó a cabo con gran éxito el Torneo Gamer: Secret Level, una actividad pensada para fortalecer la convivencia estudiantil como parte del Programa Institucional de Tutorías y el Programa de Vida Universitaria, en el que participaron estudiantes de todas las carreras.",
-      img: "assets/pics/news/torneo g.jpg",
-    },
-  ];
+  const [news, setNews] = useState<Noticia[]>([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const page = parseInt(searchParams.get("page") || "1", 10);
+
+  useEffect(() => {
+    const fetchNotas = async () => {
+      setLoading(true);
+      const from = (page - 1) * ITEMS_PER_PAGE;
+      const to = from + ITEMS_PER_PAGE - 1;
+
+      const { data, error, count } = await supabase
+        .from("news")
+        .select("*", { count: "exact" })
+        .order("date", { ascending: false })
+        .range(from, to);
+
+      if (error) console.error(error);
+      else {
+        setNews(data || []);
+        setTotalPages(Math.ceil((count || 0) / ITEMS_PER_PAGE));
+        window.scrollTo({ top: 0, behavior: "instant" }); // 👈 esta línea
+      }
+
+      setLoading(false);
+    };
+
+    fetchNotas();
+  }, [page]);
+
+  const goToPage = (newPage: number) => {
+    navigate(`?page=${newPage}`);
+  };
   return (
     <div>
       <h1>Noticias</h1>
@@ -48,17 +68,25 @@ function News() {
       <div className="p-5 w-full flex flex-col gap-5">
         {news.map((n, i) => (
           <div key={i}>
-            <div className="flex flex-col xs:flex-row group hover:cursor-pointer p-5 gap-5">
-              <div className="w-2/12 hidden sm:block">7 de julio, 2025</div>
-              <div className="w-full xs:w-1/2 sm:w-3/6">
-                <h2 className="group-hover:underline">{n.title}</h2>
-                <p className="">{n.content}</p>
-                <span>Por: Juan Perez</span>
+            <Link
+              to={`/noticias/${n.id}`}
+              className="no-underline-anim text-inherit"
+            >
+              <div
+                className="flex flex-col xs:flex-row group hover:cursor-pointer p-5 gap-5"
+                onClick={() => console.log("Abrir noticia")}
+              >
+                <div className="w-2/12 hidden sm:block">{n.date}</div>
+                <div className="w-full xs:w-1/2 sm:w-3/6">
+                  <h2 className="group-hover:underline">{n.title}</h2>
+                  <p className="">{n.synopsis}</p>
+                  <span>{n.author}</span>
+                </div>
+                <div className="w-full xs:w-1/2 sm:w-4/12">
+                  <img src={n.img} alt="" />
+                </div>
               </div>
-              <div className="w-full xs:w-1/2 sm:w-4/12">
-                <img src={n.img} alt="" />
-              </div>
-            </div>
+            </Link>
             <hr className="border border-neutral-400" />
           </div>
         ))}
@@ -66,25 +94,42 @@ function News() {
       <Pagination>
         <PaginationContent>
           <PaginationItem>
-            <PaginationPrevious href="#" className="no-underline-anim" />
+            <PaginationPrevious
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                if (page > 1) goToPage(page - 1);
+              }}
+              className={`no-underline-anim ${
+                page === 1 ? "pointer-events-none opacity-50" : ""
+              }`}
+            />
           </PaginationItem>
+
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <PaginationItem key={i}>
+              <PaginationLink
+                isActive={page === i + 1}
+                onClick={() => goToPage(i + 1)}
+                className="no-underline-anim"
+              >
+                {i + 1}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
+
+          {totalPages > 5 && <PaginationEllipsis />}
+
           <PaginationItem>
-            <PaginationLink className="no-underline-anim">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink className="no-underline-anim">2</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink className="no-underline-anim">3</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink className="no-underline-anim">4</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" className="no-underline-anim" />
+            <PaginationNext
+              onClick={(e) => {
+                e.preventDefault();
+                if (page < totalPages) goToPage(page + 1);
+              }}
+              className={`no-underline-anim ${
+                page === totalPages ? "pointer-events-none opacity-50" : ""
+              }`}
+            />
           </PaginationItem>
         </PaginationContent>
       </Pagination>

@@ -131,6 +131,7 @@ a.no-underline-anim::after {
     @apply bg-background text-foreground;
   }
   p,
+  Button,
   span,
   ul {
     @apply font-roboto-condensed text-muted-foreground leading-none mb-3;

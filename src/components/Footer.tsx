@@ -1,6 +1,7 @@
 import { FaTiktok, FaFacebook, FaInstagram } from "react-icons/fa";
-import { MapPinned } from "lucide-react";
+import { MapPinned, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -83,6 +84,14 @@ function Footer() {
               <MapPinned className="text-2xl" />
             </Button>
           </a>
+          <Link to="/login" className="no-underline-anim mx-auto text-white">
+            <Button
+              variant={"outline"}
+              className="rounded-full w-8 h-8 bg-neutral-900"
+            >
+              <User className="text-2xl"></User>
+            </Button>
+          </Link>
         </div>
         <div className="flex items-baseline-last justify-center">
           <span>2025 © Todos los derechos reservados</span>
