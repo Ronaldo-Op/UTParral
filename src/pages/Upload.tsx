@@ -139,6 +139,8 @@ function Upload() {
     }
   };
 
+  if (uploading) return <span>Cargando...</span>;
+
   return (
     <>
       <h1>Nueva noticia</h1>

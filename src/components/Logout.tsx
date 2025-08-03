@@ -24,7 +24,7 @@ const Logout = () => {
 
     // Escuchar cambios de sesión
     const { data: listener } = supabase.auth.onAuthStateChange(
-      (event, session) => {
+      (_event, session) => {
         if (session?.user) {
           setUserEmail(session.user.email);
         } else {

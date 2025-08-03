@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { spawn } from "child_process";
 
 type Noticia = {
   id: string;
@@ -61,6 +62,9 @@ function News() {
   const goToPage = (newPage: number) => {
     navigate(`?page=${newPage}`);
   };
+
+  if (loading) return <span>Cargando...</span>;
+
   return (
     <div>
       <h1>Noticias</h1>

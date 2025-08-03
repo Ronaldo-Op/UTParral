@@ -34,6 +34,7 @@ const Login = () => {
 
     if (error) {
       setError(error.message);
+      console.log(data);
     } else {
       navigate("/admin");
     }
