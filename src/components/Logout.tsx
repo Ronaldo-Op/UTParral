@@ -39,6 +39,11 @@ const Logout = () => {
   }, []);
 
   const handleLogout = async () => {
+    const session = await supabase.auth.getSession();
+    if (!session.data.session) {
+      console.warn("No hay sesión activa.");
+      return;
+    }
     const { error } = await supabase.auth.signOut();
     if (error) {
       console.error("Error al cerrar sesión:", error.message);
