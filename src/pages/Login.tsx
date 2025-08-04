@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { isAuthenticated } from "@/lib/utils";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,17 +9,6 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      const loggedIn = await isAuthenticated();
-      if (loggedIn) {
-        navigate("/admin");
-      }
-    };
-
-    checkAuth();
-  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
