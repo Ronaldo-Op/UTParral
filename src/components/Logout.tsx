@@ -9,27 +9,18 @@ const Logout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Obtener sesión actual
     const getSession = async () => {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-
-      if (session?.user) {
-        setUserEmail(session.user.email);
-      }
+      setUserEmail(session?.user?.email);
     };
 
     getSession();
 
-    // Escuchar cambios de sesión
     const { data: listener } = supabase.auth.onAuthStateChange(
       (_event, session) => {
-        if (session?.user) {
-          setUserEmail(session.user.email);
-        } else {
-          setUserEmail(undefined);
-        }
+        setUserEmail(session?.user?.email);
       }
     );
 
@@ -39,11 +30,6 @@ const Logout = () => {
   }, []);
 
   const handleLogout = async () => {
-    const session = await supabase.auth.getSession();
-    if (!session.data.session) {
-      console.warn("No hay sesión activa.");
-      return;
-    }
     const { error } = await supabase.auth.signOut({ scope: "local" });
     if (error) {
       console.error("Error al cerrar sesión:", error.message);
