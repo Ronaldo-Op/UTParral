@@ -30,8 +30,6 @@ const Logout = () => {
   }, []);
 
   const handleLogout = async () => {
-    const { data: sessionData } = await supabase.auth.getSession();
-    console.log("Sesión actual:", sessionData.session);
     const { error } = await supabase.auth.signOut();
     if (error) {
       console.error("Error al cerrar sesión:", error.message);
