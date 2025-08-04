@@ -44,7 +44,7 @@ const Logout = () => {
       console.warn("No hay sesión activa.");
       return;
     }
-    const { error } = await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut({ scope: "local" });
     if (error) {
       console.error("Error al cerrar sesión:", error.message);
     } else {
